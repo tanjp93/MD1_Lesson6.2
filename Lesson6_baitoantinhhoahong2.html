@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh Hoa Hong</title>
+    <style>
+        body {
+            font-family: "Times New Roman";
+        }
+        input{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <th colspan="3"> Thu nhập (hoa hồng 5%)</th>
+    </tr>
+    <tr>
+        <td>Số lượng sản phẩm đã bán</td>
+        <td><input id="number"></td>
+        <td>cái/chiếc</td>
+    <tr>
+        <td> Đơn giá</td>
+        <td><input id="cost"></td>
+        <td>vnd</td>
+    </tr>
+    <tr>
+        <td><button onclick="checkSalary()">Kiểm tra thu nhập của bạn</button></td>
+        <td><p style="text-align: center" id="salary"></p></td>
+        <td>vnd</td>
+    </tr>
+</table>
+<script>
+    function checkSalary() {
+        let numberSold=document.getElementById("number").value;
+        let cost=document.getElementById("cost").value;
+        salary=numberSold*cost;
+        document.getElementById("salary").innerHTML=(salary);
+        console.log(numberSold)
+    }
+</script>
+</body>
+</html>
