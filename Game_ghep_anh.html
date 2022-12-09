@@ -3,24 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <title>Game_ghep_anh</title>
+    <style>
+        .img{
+            height: 160px;
+            width: 800px;
+            display: block;
+        }
+        #box-shadow{
+            width: 500px;
+            height: 150px;
+            display: block;
+            box-shadow: 5px 10px 20px #e80404;
+        }
+    </style>
 </head>
 <body>
-<table>
+<table id="box-shadow">
     <tr>
-        <td><img onclick="img1()" src="baitap/Cat 1.png" height="160" width="800"/></td>
+        <td>
+            <img id="num1" onclick="changeImg1()" class="img_1" src="./image/Cat1.png" height="160" width="800">
+            <img id="num2" onclick="changeImg2()" class="img_2" src="./image/Gau2.png" height="160" width="800">
+            <img id="num3" onclick="changeImg3()" class="img_3" src="./image/Khi3.png" height="160" width="800">
+        </td>
     </tr>
 </table>
-
-<img onclick="img2()" src="baitap/Cat 2.png" height="160" width="800"/>
-<img onclick="img3()" src="baitap/Cat 3.png" height="160" width="800"/>
-
-<img src="baitap/Gau 1.png" height="160" width="800"/>
-<img src="baitap/Gau 2.png" height="160" width="800"/>
-<img src="baitap/Gau 3.png" height="160" width="800"/>
-
-<img src="baitap/Khi 1.png" height="160" width="800"/>
-<img src="baitap/Khi 2.png" height="160" width="800"/>
-<img src="baitap/Khi 3.png" height="160" width="800"/>
-
+<script>
+    let img1 = document.getElementById("num1");
+    let countImg1 = 0;
+    let img2 = document.getElementById("num2");
+    let countImg2 = 1;
+    let img3 = document.getElementById("num3");
+    let countImg3 = 2;
+    function changeImg1() {
+        countImg1++
+        if (countImg1 == 1) {
+            img1.src = "./image/Gau1.png"
+        } else if (countImg1 == 2) {
+            img1.src = "./image/Khi1.png"
+        } else {
+            img1.src = "./image/Cat1.png"
+            countImg1 = 0
+        }
+        checkComplete()
+    }
+    function changeImg2() {
+        countImg2++
+        if (countImg2 == 1) {
+            img2.src = "./image/Gau2.png"
+        } else if (countImg2 == 2) {
+            img2.src = "./image/Khi2.png"
+        } else {
+            img2.src = "./image/Cat2.png"
+            countImg2 = 0
+        }
+        checkComplete()
+    }
+    function changeImg3() {
+        countImg3++
+        switch (countImg3) {
+            case 1: img3.src = "./image/Gau3.png";
+                break;
+            case 2: img3.src="./image/Khi3.png";
+                break;
+            case 3: img3.src="./image/Cat3.png";
+                countImg3=0;
+                break
+        }
+        checkComplete()
+    }
+    function checkComplete() {
+        if (countImg1==countImg2 && countImg2==countImg3){
+            document.getElementById("box-shadow").style.boxShadow="25px 300px 60px blue"
+        }else document.getElementById("box-shadow").style.boxShadow="25px 300px 60px red"
+    }
+</script>
 </body>
 </html>

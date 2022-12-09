@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .puzzle-img {
+      display: block;
+      height: 100px;
+      width: 100%;
+      margin-bottom: 5px;
+    }
+    #box-shadow {
+      width: 500px;
+      border: 1px solid;
+      padding: 10px;
+      box-shadow: 5px 10px 18px red;
+    }
+  </style>
+</head>
+<body>
+<div id="box-shadow">
+  <img src="./image/Cat1.png" class="puzzle-img" id="img1" onclick="changeImg1()" alt="" />
+  <img src="./image/Gau2.png" class="puzzle-img" id="img2" onclick="changeImg2()" alt="" />
+  <img src="./image/Khi3.png" class="puzzle-img" id="img3" onclick="changeImg3()" alt="" />
+</div>
+<script>
+  let count1 = 0,
+          count2 = 1,
+          count3 = 2;
+  let img1 = document.getElementById("img1");
+  let img2 = document.getElementById("img2");
+  let img3 = document.getElementById("img3");
+  function changeImg1() {
+    count1++;
+    switch (count1) {
+      case 1:
+        img1.src = `./image/Gau1.png`;
+        break;
+      case 2:
+        img1.src = `./image/Khi1.png`;
+        break;
+      case 3:
+        count1 = 0;
+        img1.src = `./image/Cat1.png`;
+
+        break;
+    }
+    checkComplete();
+  }
+  function changeImg2() {
+    count2++;
+    switch (count2) {
+      case 1:
+        img2.src = `./image/Gau2.png`;
+        break;
+      case 2:
+        img2.src = `./image/Khi2.png`;
+        break;
+      case 3:
+        count2 = 0;
+        img2.src = `./image/Cat2.png`;
+        break;
+    }
+    checkComplete();
+  }
+  function changeImg3() {
+    console.log(count3);
+    count3++;
+    switch (count3) {
+      case 1:
+        img3.src = `./image/Gau3.png`;
+        break;
+      case 2:
+        img3.src = `./image/Khi3.png`;
+        break;
+      case 3:
+        count3 = 0;
+        img3.src = `./image/Cat3.png`;
+        break;
+    }
+    checkComplete();
+  }
+  function checkComplete() {
+    console.log(count1,count2,count3);
+    if (count1 == count2 && count2 == count3 ) {
+      document.getElementById("box-shadow").style.boxShadow = "5px 10px 18px blue"
+    }
+    else{
+      document.getElementById("box-shadow").style.boxShadow = "5px 10px 18px red"
+    }
+  }
+</script>
+</body>
+</html> -->
